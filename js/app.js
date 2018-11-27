@@ -67,7 +67,7 @@ class Hero {
         }
       break;
       case 'up' :
-        if (this.y > this.horiz) {
+        if (this.y > 0) {
       this.y -= this.horiz;
       }
       break;
@@ -78,7 +78,7 @@ class Hero {
 
       break;
       case 'down' :
-      if (this.y < this.horiz * 5) {
+      if (this.y < this.horiz * 4) {
     this.y += this.horiz;
     }
       break;
