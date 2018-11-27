@@ -7,6 +7,8 @@ var Enemy = function(x, y, speed) {
     this.boundary = this.vert * 5;
     this.startPos = -this.vert;
     this.speed = speed;
+    this.height = this.enemyH;
+    this.width = this.enemyW;
   };
 
     // Variables applied to each of our instances go here,
@@ -50,15 +52,41 @@ class Hero {
     this.sprite = 'images/char-pink-girl.png';
     this.vert = 101;
     this.horiz = 83;
-    this.startX = this.vert * 2;
-    this.startY = (this.horiz * 4) + 55;
+    this.startX = this.vert * 3;
+    this.startY = (this.horiz * 4) + 70;
     this.x = this.startX;
     this.y = this.startY;
+    this.height = this.heroH;
+    this.width = this.heroW;
 
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+
+  //update function
+  update () {
+    for(let enemy of allEnemies){
+      if (this.x === enemy.y){
+        console.log("collision!");
+      }
+    }
+  }
+  // update () {
+  //   for (let enemy of allEnemies) {
+  //     //check if there is a collision
+  //     if (this.x < enemy.x + enemy.width &&
+  //         this.x + this.width > enemy.x &&
+  //         this.y < enemy.y + enemy.height &&
+  //         this.y + this.height > enemy.y) {
+  //         //collision detected!
+  //       console.log("collision!!");
+  //     }
+  //   }
+  //
+  //
+  // }
+  //end of update function
   handleInput(input){
     switch(input) {
       case 'left' :
@@ -97,7 +125,7 @@ const ladybug3 = new Enemy((-101*2.5), 83, 300);
 const ladybug4 = new Enemy(-101, 160, 50);
 const allEnemies = [];
 allEnemies.push(ladybug1,ladybug2,ladybug3, ladybug4);
-console.log(allEnemies);
+//console.log(allEnemies);
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
