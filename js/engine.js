@@ -22,8 +22,11 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
-
+        lastTime,
+		id;
+	
+	
+		
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -184,3 +187,21 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+
+
+
+
+
+
+
+
+
+if (player.won === true){
+	win.cancelAnimationFrame(id);
+	modal.classList.toggle('hide');
+		}
+	
+	else {
+	id = win.requestAnimationFrame(main);
+		}

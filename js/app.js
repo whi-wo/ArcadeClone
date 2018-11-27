@@ -58,8 +58,9 @@ class Hero {
     this.y = this.startY;
     this.height = 73;
     this.width = 50;
-
+	this.victory = false;
   }
+  
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -77,12 +78,16 @@ class Hero {
           this.y + this.height > enemy.y) {
           //collision detected!
            this.reset();
+		   setTimeout(toggleModal, 100);
       }
-      //console.log(this.x, this.y);
-    }
-
-
-  }
+      }
+    
+	//check to see if the player won
+	if (this.y <= 0) {
+		this.victory = true;
+					}
+	
+	}
   //end of update function
 
   //resets character back to starting position
@@ -91,7 +96,9 @@ class Hero {
     this.y = this.startY;
   }
   //end of reset function
-
+	
+  
+  
   handleInput(input) {
     switch(input) {
       case 'left' :
@@ -117,9 +124,9 @@ class Hero {
       break;
     }
   }
+  }
+  
 
-
-}
 
 
 
@@ -154,3 +161,26 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//function that toggles modal appearance
+function toggleModal(){
+const modal = document.querySelector('.modal-bgd');
+modal.classList.toggle('hide');
+}
+
+const replay = document.querySelector('#replay');
+const close = document.querySelector('close');
+
+/* if (player.won === true){
+	win.cancelAnimationFrame(id);
+	modal.classList.toggle('hide');
+		}
+	
+	else {
+	id = win.requestAnimationFrame(main);
+		} */
+
+
+
+document.querySelector('#close').addEventListener('click',toggleModal);
+document.querySelector('#replay').addEventListener('click',player.reset);
