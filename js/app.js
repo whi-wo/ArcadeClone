@@ -2,13 +2,13 @@
 var Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
-    this.y = y + 55;
-    this.vert = 101;
-    this.boundary = this.vert * 5;
-    this.startPos = -this.vert;
+    this.y = y + 65;
+    this.horiz = 101;
+    this.boundary = this.horiz * 5;
+    this.startPos = -this.horiz;
     this.speed = speed;
-    this.height = this.enemyH;
-    this.width = this.enemyW;
+    this.height = 60;
+    this.width = 90;
   };
 
     // Variables applied to each of our instances go here,
@@ -50,14 +50,14 @@ Enemy.prototype.render = function() {
 class Hero {
   constructor() {
     this.sprite = 'images/char-pink-girl.png';
-    this.vert = 101;
-    this.horiz = 83;
-    this.startX = this.vert * 3;
-    this.startY = (this.horiz * 4) + 70;
+    this.horiz = 101;
+    this.vert = 83;
+    this.startX = this.horiz * 3;
+    this.startY = (this.vert * 4) + 75;
     this.x = this.startX;
     this.y = this.startY;
-    this.height = this.heroH;
-    this.width = this.heroW;
+    this.height = 73;
+    this.width = 50;
 
   }
   render(){
@@ -65,49 +65,54 @@ class Hero {
   }
 
   //update function
+
   update () {
-    for(let enemy of allEnemies){
-      if (this.x === enemy.y){
-        console.log("collision!");
+    for (let enemy of allEnemies) {
+      //check if there is a collision
+      // if (this.y === enemy.y && (enemy.x + 40 >=
+      //     this.x && enemy.x - 40 <= this.xs)) {
+      if (this.x < enemy.x +     enemy.width &&
+          this.x + this.width >  enemy.x &&
+          this.y < enemy.y +     enemy.height &&
+          this.y + this.height > enemy.y) {
+          //collision detected!
+           this.reset();
       }
+      //console.log(this.x, this.y);
     }
+
+
   }
-  // update () {
-  //   for (let enemy of allEnemies) {
-  //     //check if there is a collision
-  //     if (this.x < enemy.x + enemy.width &&
-  //         this.x + this.width > enemy.x &&
-  //         this.y < enemy.y + enemy.height &&
-  //         this.y + this.height > enemy.y) {
-  //         //collision detected!
-  //       console.log("collision!!");
-  //     }
-  //   }
-  //
-  //
-  // }
   //end of update function
-  handleInput(input){
+
+  //resets character back to starting position
+  reset() {
+    this.x = this.startX;
+    this.y = this.startY;
+  }
+  //end of reset function
+
+  handleInput(input) {
     switch(input) {
       case 'left' :
         if (this.x > 0) {
-          this.x -= this.vert;
+          this.x -= this.horiz;
         }
       break;
       case 'up' :
         if (this.y > 0) {
-      this.y -= this.horiz;
+      this.y -= this.vert;
       }
       break;
       case 'right' :
-      if (this.x < this.vert * 4) {
-        this.x += this.vert;
+      if (this.x < this.horiz * 4) {
+        this.x += this.horiz;
       }
 
       break;
       case 'down' :
-      if (this.y < this.horiz * 4) {
-    this.y += this.horiz;
+      if (this.y < this.vert * 4) {
+    this.y += this.vert;
     }
       break;
     }
@@ -115,6 +120,11 @@ class Hero {
 
 
 }
+
+
+
+
+
 
 
 
