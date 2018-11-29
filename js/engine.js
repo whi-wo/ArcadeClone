@@ -24,9 +24,9 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
 		id;
-	
-	
-		
+
+
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -34,6 +34,7 @@ var Engine = (function(global) {
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
+     
     function main() {
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
@@ -187,21 +188,3 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
-
-
-
-
-
-
-
-
-
-
-if (player.won === true){
-	win.cancelAnimationFrame(id);
-	modal.classList.toggle('hide');
-		}
-	
-	else {
-	id = win.requestAnimationFrame(main);
-		}

@@ -58,9 +58,9 @@ class Hero {
     this.y = this.startY;
     this.height = 73;
     this.width = 50;
-	this.victory = false;
+	  this.victory = false;
   }
-  
+
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -77,16 +77,16 @@ class Hero {
           this.y < enemy.y +     enemy.height &&
           this.y + this.height > enemy.y) {
           //collision detected!
-           this.reset();
-		   setTimeout(toggleModal, 100);
+          this.reset();
+
       }
       }
-    
+
 	//check to see if the player won
 	if (this.y <= 0) {
 		this.victory = true;
 					}
-	
+
 	}
   //end of update function
 
@@ -96,9 +96,9 @@ class Hero {
     this.y = this.startY;
   }
   //end of reset function
-	
-  
-  
+
+
+
   handleInput(input) {
     switch(input) {
       case 'left' :
@@ -125,7 +125,7 @@ class Hero {
     }
   }
   }
-  
+
 
 
 
@@ -142,7 +142,7 @@ const ladybug3 = new Enemy((-101*2.5), 83, 300);
 const ladybug4 = new Enemy(-101, 160, 50);
 const allEnemies = [];
 allEnemies.push(ladybug1,ladybug2,ladybug3, ladybug4);
-//console.log(allEnemies);
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -163,24 +163,31 @@ document.addEventListener('keyup', function(e) {
 });
 
 //function that toggles modal appearance
-function toggleModal(){
+function toggleModal() {
 const modal = document.querySelector('.modal-bgd');
 modal.classList.toggle('hide');
 }
 
-const replay = document.querySelector('#replay');
-const close = document.querySelector('close');
+function gameModal {
+  if (player.victory ==== true) {
+  toggleModal();
+}
+}
 
 /* if (player.won === true){
 	win.cancelAnimationFrame(id);
 	modal.classList.toggle('hide');
 		}
-	
+
 	else {
 	id = win.requestAnimationFrame(main);
 		} */
+function gameReset() {
+  player.reset();
+  //toggleModal();
+}
 
 
 
+document.querySelector('#replay').addEventListener('click',gameReset);
 document.querySelector('#close').addEventListener('click',toggleModal);
-document.querySelector('#replay').addEventListener('click',player.reset);
