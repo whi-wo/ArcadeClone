@@ -58,9 +58,10 @@ class Hero {
     this.y = this.startY;
     this.height = 73;
     this.width = 50;
-	  this.victory = false;
+	this.victory = false;
   }
 
+ 
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -85,11 +86,14 @@ class Hero {
 	//check to see if the player won
 	if (this.y <= 0) {
 		this.victory = true;
-					}
-
+		//gameModal();
+		 }
 	}
+	
+	
+  
   //end of update function
-
+	
   //resets character back to starting position
   reset() {
     this.x = this.startX;
@@ -97,6 +101,11 @@ class Hero {
   }
   //end of reset function
 
+  //if player won, toggle the modal
+	/*   if (this.victory === true){
+		toggleModal();
+	} 
+  }*/
 
 
   handleInput(input) {
@@ -124,8 +133,8 @@ class Hero {
       break;
     }
   }
+  
   }
-
 
 
 
@@ -161,18 +170,23 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+const modal = document.querySelector('.modal-bgd');
 
 //function that toggles modal appearance
 function toggleModal() {
-const modal = document.querySelector('.modal-bgd');
-modal.classList.toggle('hide');
-}
+//const modal = document.querySelector('.modal-bgd');
+modal.classList.toggle("hide");
+console.log("modal has been toggled");
+}  
 
-function gameModal {
-  if (player.victory ==== true) {
-  toggleModal();
-}
-}
+
+/* function gameModal(){
+	if (player.victory === true) {
+	  toggleModal();
+  }
+} */
+
+//gameModal();
 
 /* if (player.won === true){
 	win.cancelAnimationFrame(id);
@@ -184,10 +198,15 @@ function gameModal {
 		} */
 function gameReset() {
   player.reset();
-  //toggleModal();
+  modal.classList.toggle("hide");
+  player.victory = false;
 }
 
 
-
 document.querySelector('#replay').addEventListener('click',gameReset);
-document.querySelector('#close').addEventListener('click',toggleModal);
+//document.querySelector('#close').addEventListener('click',toggleModal);
+
+
+
+
+

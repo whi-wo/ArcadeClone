@@ -12,6 +12,7 @@
  * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
+ 
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -25,9 +26,11 @@ var Engine = (function(global) {
         lastTime,
 		id;
 
-
-
-    canvas.width = 505;
+const modal = document.querySelector('.modal-bgd');
+document.querySelector('#replay').addEventListener('click',player.reset);	
+    
+	
+	canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
@@ -59,8 +62,27 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+       replay.addEventListener("click", function() {
+            
+                //const clickTarget = event.target;
+                //toggleModal();
+                player.reset();
+                player.victory = false;
+                win.requestAnimationFrame(main);
+         });
+         
+         if (player.victory === true) {
+           win.cancelAnimationFrame(id);
+           modal.classList.toggle("hide");
+           //modal.classList.toggle("show");
+           }
+           else {
+             id = win.requestAnimationFrame(main);
+      }
+      
+    
     }
+	
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -93,6 +115,10 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+	 
+	
+	
+
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
            enemy.update(dt);
