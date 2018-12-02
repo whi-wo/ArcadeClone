@@ -148,8 +148,9 @@ const ladybug1 = new Enemy(-101, 0, 200);
 const ladybug2 = new Enemy(-101, 83, 300);
 const ladybug3 = new Enemy((-101*2.5), 83, 300);
 const ladybug4 = new Enemy(-101, 160, 50);
+const ladybug5 = new Enemy(-101*1.5, 0, 50);
 const allEnemies = [];
-allEnemies.push(ladybug1,ladybug2,ladybug3, ladybug4);
+allEnemies.push(ladybug1,ladybug2,ladybug3, ladybug4, ladybug5);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies

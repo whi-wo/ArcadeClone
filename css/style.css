@@ -24,7 +24,7 @@ body {
   width: 400px;
   top: 50%;
   left: 50%;
-  background: blue;
+  background: #536DFE;
   transform: translate(-50%, -50%);
   border-radius: 20px;
 }

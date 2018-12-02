@@ -28,4 +28,4 @@ Feedback is very much welcome, please submit a pull request or contact me with q
 ## Acknowledgements
 Udacity & Google for this opportunity
 Udacity FEND Program Staff
-@MatthewCranford
+@MatthewCranford's  blog
