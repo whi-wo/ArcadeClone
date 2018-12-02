@@ -12,7 +12,7 @@
  * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
- 
+
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -24,12 +24,12 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-		id;
+		    id;
 
 const modal = document.querySelector('.modal-bgd');
-document.querySelector('#replay').addEventListener('click',player.reset);	
-    
-	
+const replay = document.querySelector('#replay');
+
+
 	canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -37,7 +37,7 @@ document.querySelector('#replay').addEventListener('click',player.reset);
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
-     
+
     function main() {
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
@@ -62,27 +62,27 @@ document.querySelector('#replay').addEventListener('click',player.reset);
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-       replay.addEventListener("click", function() {
-            
-                //const clickTarget = event.target;
-                //toggleModal();
-                player.reset();
-                player.victory = false;
-                win.requestAnimationFrame(main);
-         });
-         
-         if (player.victory === true) {
+         if (player.won === true) {
            win.cancelAnimationFrame(id);
-           modal.classList.toggle("hide");
-           //modal.classList.toggle("show");
+           modal.classList.toggle('hide');
+           //toggleModal();
+
            }
            else {
              id = win.requestAnimationFrame(main);
       }
-      
-    
+      replay.addEventListener('click', function() {
+                //toggleModal();
+               modal.classList.toggle('hide');
+               location.reload();
+
+         });
+
+
+
+
     }
-	
+
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -105,7 +105,7 @@ document.querySelector('#replay').addEventListener('click',player.reset);
      */
     function update(dt) {
         updateEntities(dt);
-        //checkCollisions();
+
     }
 
     /* This is called by the update function and loops through all of the
@@ -115,9 +115,9 @@ document.querySelector('#replay').addEventListener('click',player.reset);
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
-	 
-	
-	
+
+
+
 
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {

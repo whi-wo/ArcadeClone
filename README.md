@@ -1,20 +1,31 @@
 # Classic Arcade Game Clone Project
-
-## Table of Contents
+a classic fun rendition of the original, "Frogger".
+<!-- ## Table of Contents
 
 - [Instructions](#instructions)
-- [Contributing](#contributing)
+- [Contributing](#contributing) -->
 
-## Instructions
+## Background
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/2013/view) for self-checking your submission.
+This novice project is a part of a student submission in the Udacity Front-End Nanodegree Program. I converted provided files from a static project to an animated games by editing the HTML, CSS, and JavaScript files. It was intentional to complete this project using vanilla Javascript only.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+To get started, open the 'index.html' to view the existing game functionality.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+## How To Play
+Using the directional keys on a keyboard, move the player character across the playing area. The object of the game is to reach the river without being hitting any of the enemy bugs. If you are hit, you will be player back to the starting position.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Dependencies
+
+This project has the following dependencies:
+
+Use of the font-awesome library for CSS
+MDN Web Docs for 2D collision detection
+
 
 ## Contributing
+Feedback is very much welcome, please submit a pull request or contact me with questions. Thanks for taking a look at this project.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Acknowledgements
+Udacity & Google for this opportunity
+Udacity FEND Program Staff
+@MatthewCranford
