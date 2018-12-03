@@ -15,8 +15,8 @@ The object of the game is to reach the river without being hitting any of the en
 
 This project has the following dependencies:
 
-- Use of the font-awesome library for CSS
-- MDN Web Docs for 2D collision detection
+- [Google Fonts](https://fonts.google.com/) - Font library
+- [MDN Web Docs for 2D collision detection] (https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection)
 
 
 ## Contributing
@@ -25,4 +25,4 @@ Feedback is very much welcome, please submit a pull request or contact me with q
 ## Acknowledgements
 - Udacity & Google for this opportunity
 - Udacity FEND Program Staff
-- [@MatthewCranford](https://github.com/matthewcranford)'s  blog 
+- [@MatthewCranford](https://github.com/matthewcranford)'s  blog
