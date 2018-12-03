@@ -9,7 +9,7 @@ This novice project is a part of a student submission in the Udacity Front-End N
 To get started, open the `index.html` to view the existing game functionality.
 
 ## How To Play
-The object of the game is to reach the river without being hitting any of the enemy bugs. Using the directional keys on a keyboard to move the player across the playing area. If you are hit, you will be placed back to the starting position. Once, you've won the game, click the Replay button to play again. 
+The object of the game is to reach the river without being hitting any of the enemy bugs. Using the directional keys on a keyboard to move the player across the playing area. If you are hit, you will be placed back to the starting position. Once, you've won the game, click the Replay button to play again.
 
 ## Dependencies
 
@@ -25,4 +25,4 @@ Feedback is very much welcome, please submit a pull request or contact me with q
 ## Acknowledgements
 - Udacity & Google for this opportunity
 - Udacity FEND Program Staff
-- @MatthewCranford's  blog
+- [@MatthewCranford](https://github.com/matthewcranford)'s  blog 
