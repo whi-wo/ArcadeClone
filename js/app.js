@@ -1,4 +1,4 @@
-// Enemies our player must avoid
+// Enemies the player must avoid
 var Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
@@ -11,21 +11,10 @@ var Enemy = function(x, y, speed) {
     this.width = 90;
   };
 
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-
-
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// motion for enemy bugs
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    //if enemy is not past boundary of game
+
     if(this.x < this.boundary) {
       //move forward
       //increment x by speed * dt
@@ -38,15 +27,13 @@ Enemy.prototype.update = function(dt) {
 
 };
 
-// Draw the enemy on the screen, required method for game
+// Draws the bug on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
 
+//character object
 class Hero {
   constructor() {
     this.sprite = 'images/char-pink-girl.png';
@@ -67,12 +54,9 @@ class Hero {
   }
 
   //update function
-
   update () {
     for (let enemy of allEnemies) {
-      //check if there is a collision
-      // if (this.y === enemy.y && (enemy.x + 40 >=
-      //     this.x && enemy.x - 40 <= this.xs)) {
+      //checks if there is a collision
       if (this.x < enemy.x +     enemy.width &&
           this.x + this.width >  enemy.x &&
           this.y < enemy.y +     enemy.height &&
@@ -88,9 +72,6 @@ class Hero {
 		this.won = true;
 		 }
 	}
-
-
-
   //end of update function
 
   //resets character back to starting position
@@ -99,13 +80,6 @@ class Hero {
     this.y = this.startY;
   }
   //end of reset function
-
-  //if player won, toggle the modal
-	/*   if (this.victory === true){
-		toggleModal();
-	}
-  }*/
-
 
   handleInput(input) {
     switch(input) {
@@ -135,14 +109,7 @@ class Hero {
 
   }
 
-
-
-
-
-
-
-
-
+//instantiates player and enemy bugs
 const player = new Hero();
 const ladybug1 = new Enemy(-101, 0, 200);
 const ladybug2 = new Enemy(-101, 83, 300);
@@ -152,14 +119,8 @@ const ladybug5 = new Enemy(-101*1.5, 0, 50);
 const allEnemies = [];
 allEnemies.push(ladybug1,ladybug2,ladybug3, ladybug4, ladybug5);
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses and sends the keys to the
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -170,7 +131,7 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-//const modal = document.querySelector('.modal-bgd');
+
 
 //function that toggles modal appearance
 function toggleModal() {
@@ -178,30 +139,3 @@ function toggleModal() {
 modal.classList.toggle("hide");
  console.log("modal has been toggled");
 }
-
-
-/*function gameModal(){
-	if (player.victory === true) {
-	  toggleModal();
-  }
-} */
-
-//gameModal();
-
-/* if (player.won === true){
-	win.cancelAnimationFrame(id);
-	modal.classList.toggle('hide');
-		}
-
-	else {
-	id = win.requestAnimationFrame(main);
-		} */
-// function gameReset() {
-//   player.reset();
-//   modal.classList.toggle("hide");
-//   player.victory = false;
-// }
-
-
-//document.querySelector('#replay').addEventListener('click',gameReset);
-//document.querySelector('#close').addEventListener('click',toggleModal);

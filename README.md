@@ -1,9 +1,6 @@
 # Classic Arcade Game Clone Project
 a classic fun rendition of the original, "Frogger".
-<!-- ## Table of Contents
 
-- [Instructions](#instructions)
-- [Contributing](#contributing) -->
 
 ## Background
 
