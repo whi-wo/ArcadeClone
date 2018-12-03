@@ -16,7 +16,7 @@ The object of the game is to reach the river without being hitting any of the en
 This project has the following dependencies:
 
 - [Google Fonts](https://fonts.google.com/) - Font library
-- [MDN Web Docs for 2D collision detection] (https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection)
+- [MDN Web Docs for 2D collision detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection)
 
 
 ## Contributing
